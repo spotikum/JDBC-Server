@@ -201,7 +201,7 @@ public class Client {
         System.out.print("\n\t\t----Penjualan Buku----");
         System.out.print("\n\t\t---Menu Utama---");
         System.out.print("\n\nMasukkan pilihan Layanan :");
-        System.out.print("\n1. Melihat Barang yang tersedia");
+        System.out.print("\n1. Melihat Buku yang tersedia");
         System.out.print("\n2. Pemesanan");
         System.out.print("\n3. Melihat Daftar Pesanan");
         System.out.print("\n0. Keluar");
