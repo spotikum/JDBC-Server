@@ -92,7 +92,6 @@ public class Client {
             System.out.print("\n\t\t  ---Menu Login---");
             System.out.print("\n\nMasukkan username: ");
             username = sc.nextLine();
-            //password = PasswordField.readPassword("Masukkan Password : ");
             System.out.print("Masukkan Password: ");
             password = sc.nextLine();
 
@@ -100,7 +99,6 @@ public class Client {
             // Mengirim nilai ke server
             dos.writeUTF(send);
 
-            // Menunggu prosed dari server
             out = dis.readUTF();
             kondisi = out;
             if(kondisi.equals("login gagal, username atau password yang dimasukkan salah")){
@@ -141,11 +139,9 @@ public class Client {
             System.out.print("Masukkan nomor telepon: ");
             no_tlp = sc.nextLine();
             dos.writeUTF(no_tlp);
-            //password = PasswordField.readPassword("Masukkan Password : ");
             System.out.print("Masukkan Password: ");
             password = sc.nextLine();
             dos.writeUTF(password);
-            //ulangi_password = PasswordField.readPassword("Ulangi Password : ");
             System.out.print("Ulangi Password: ");
             ulangi_password = sc.nextLine();
             dos.writeUTF(ulangi_password);
@@ -201,7 +197,7 @@ public class Client {
         System.out.print("\n\t\t----Penjualan Buku----");
         System.out.print("\n\t\t---Menu Utama---");
         System.out.print("\n\nMasukkan pilihan Layanan :");
-        System.out.print("\n1. Melihat Buku yang tersedia");
+        System.out.print("\n1. Melihat Barang yang tersedia");
         System.out.print("\n2. Pemesanan");
         System.out.print("\n3. Melihat Daftar Pesanan");
         System.out.print("\n0. Keluar");

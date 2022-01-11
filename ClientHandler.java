@@ -132,10 +132,6 @@ class ClientHandler extends Thread {
                     }
                     dos.writeUTF(hasil);
                 }else if(pilihan == 11) {
-//                    sql = "SELECT DISTINCT nama_jenis FROM tb_jenis\n";
-//                    sql = "SET @no=0\n"+
-//                    "SELECT @no:=@no+1 AS nomor, nama_jenis FROM tb_jenis\n" +
-//                            "GROUP BY nama_jenis";
                     sql ="SELECT id_kategori, judul_buku, deskripsi, penulis, kategori, penerbit, harga FROM tb_kategori\n" +
                     "inner join tb_buku on tb_kategori.`id_buku` = tb_buku.`id_buku`\n";
                     connectDB(sql,1 );
@@ -162,18 +158,11 @@ class ClientHandler extends Thread {
                     }
                 }else if(pilihan == 13){
                     int id_user = Integer.parseInt(dis.readUTF());
-                    //int id = Integer.parseInt(inputUser.get(1));
 
                     sql = "select id_pembelian, judul_buku, deskripsi, kategori, penulis, penerbit, tanggal_terbit, harga from tb_pembelian\n" +
                            "inner join tb_kategori on tb_pembelian.`id_kategori` = tb_kategori.`id_kategori`\n"+
                             "inner join tb_buku on tb_kategori.`id_buku` = tb_buku.`id_buku`\n"+
                             "where id_user = "+id_user;
-
-//                    sql = "select nama, alamat, no_hp, nama_barang, deskripsi, nama_jenis, type, warna, harga from tb_pembelian\n" +
-//                            "inner join tb_user on tb_pembelian.`id_user` = tb_user.`id_user`\n" +
-//                            "inner join tb_jenis on tb_pembelian.`id_jenis` = tb_jenis.`id_jenis`\n" +
-//                            "inner join tb_barang on tb_pembelian.`id_barang` = tb_barang.`id_barang`\n" +
-//                            "where id_user = "+id_user;
                     connectDB(sql,13);
 
                     dos.writeUTF(hasil);
@@ -197,8 +186,6 @@ class ClientHandler extends Thread {
             while(rs.next()){
                 if(select == "select") {
 
-                    //hasil = hasil +"\t|"+ rs.getInt("id") + "\t|\t" +rs.getString("nama_barang") + "\t\t\t\t|\t" + rs.getString("deskripsi")+ "\t\t\t|" + rs.getString("brand")+ "\t|\t"+ rs.getString("type")+ "\t|\t" + rs.getString("harga") + " \n";
-                     // hasil = hasil + rs.getString("nama_jenis")+"\n";
 
                     hasil = hasil + rs.getInt("id_kategori") + ".\t Judul Buku            : " + rs.getString("judul_buku");
                     hasil = hasil + "\n\t Deskripsi Buku        : " + rs.getString("deskripsi");
@@ -211,7 +198,6 @@ class ClientHandler extends Thread {
                 }else if (select == "validasi"){
                     hasil = ""+rs.getInt("id_user");
                 }else if (select == "pembelian"){
-//                    hasil = hasil + "\t"+rs.getInt("id_pembelian")+". "+rs.getString("tanggal")+rs.getInt("harga")+"\n";
                     hasil = hasil + rs.getInt("id_kategori") + ".\t Judul Buku            : " + rs.getString("judul_buku");
                     hasil = hasil + "\n\t Deskripsi Buku        : " + rs.getString("deskripsi");
                     hasil = hasil + "\n\t Kategori              : " + rs.getString("kategori");
